@@ -1,0 +1,38 @@
+<h5 class="heading">New Stories</h5>
+<mat-form-field>
+  <mat-label>Search</mat-label>
+  <mat-icon>search</mat-icon>
+  <input
+    class="search-input"
+    matInput
+    (keyup)="applyFilter($event)"
+    placeholder="Search"
+    #input
+  />
+</mat-form-field>
+
+<div class="spinner-container" *ngIf="loading">
+  <mat-spinner></mat-spinner>
+</div>
+<div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>Title</th>
+      <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+    </ng-container>
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef>Url</th>
+      <td mat-cell *matCellDef="let element">{{ element.url }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
+  </table>
+  <mat-paginator
+    class="mat-elevation-z8"
+    [length]="totalItems"
+    [pageSize]="3"
+    [pageSizeOptions]="[3, 5, 10, 15, 20]"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

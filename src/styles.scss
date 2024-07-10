@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 15px 15px 0px 15px; }
+
+.mat-icon {
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 18px;
+}
+
+.mat-mdc-form-field {
+    float: right;
+}
+
+#mat-input-0 {
+    width:85%;
+}
+
+.spinner-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
